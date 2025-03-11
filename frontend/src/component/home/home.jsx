@@ -14,7 +14,7 @@ const Home = () => {
   }
   return (
     <section className={`${mode ? "navy" : "nav"} relative md:h-[95vh] h-[70vh] flex justify-center items-center`}>
-      <img src={`http://localhost:2008/site-image/${info?.home_image}`} alt={`${info?.home_image}`} className=" absolute top-0 left-0  w-full h-full"/>
+      <img src={`https://book-shop-backend-2i9k.onrender.com/site-image/${info?.home_image}`} alt={`${info?.home_image}`} className=" absolute top-0 left-0  w-full h-full"/>
       <form onSubmit={submitHandler} className="home_inputs py-3 px-3 md:w-1/2 rounded-lg relative text-white">
         <h3 className="text-xl">Kitoblarni qidiring!</h3>
         <p className="max-md:text-justify">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae molestiae minima fugit doloribus, quae architecto at natus sit iste ea, quidem nulla eveniet fugiat aliquam tempora? Repellendus laboriosam sapiente libero.</p>

@@ -43,7 +43,7 @@ const Blogs = () => {
        {items.length > 0 && items.map((item, i) => (
           <div key={i} className="border p-2 w-full">
             <div>
-              <img src={`http://localhost:2008/blog-image/${item?.image}`} alt="fs" />
+              <img src={`https://book-shop-backend-2i9k.onrender.com/blog-image/${item?.image}`} alt="fs" />
             </div>
             <div className="py-1">
               <h3 className="Itim md:text-4xl text-3xl mb-3">{item?.title}</h3>

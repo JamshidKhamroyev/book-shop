@@ -29,7 +29,7 @@ const Navbar = () => {
   return (
     <header className={`w-full ${mode ? "navy" : "nav"} py-3 flex border-b justify-between items-center md:px-6 fixed top-0 left-0 z-[3]`}>
         <Link to={"/"} onClick={() => sertActive("home")} className="flex justify-center items-center md:gap-2 gap-1 cursor-pointer">
-            <img src={`http://localhost:2008/site-image/${info?.logo}`} alt={"dafelur"} className="w-[50px] rounded-full" />
+            <img src={`https://book-shop-backend-2i9k.onrender.com/site-image/${info?.logo}`} alt={"dafelur"} className="w-[50px] rounded-full" />
             <h2 className="text-xl">{info?.title}</h2>
         </Link>
 

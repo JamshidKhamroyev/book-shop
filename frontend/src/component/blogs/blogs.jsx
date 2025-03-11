@@ -14,7 +14,7 @@ const Blogs = () => {
     const getInfo = async () => {
       dispatch(showLoader())
     try {
-        const response = await Myaxios.get(`/api/site/get-one`)
+        const response = await Myaxios.get(`http://localhost:2008/api/site/get-one`)
         if(response.data.ok){
           dispatch(setInfo(response.data.data))
         }else{
@@ -38,7 +38,7 @@ const Blogs = () => {
           {info?.blogs.map(item => (
             <div key={item.title} className="border p-2">
               <div className="h-[60vh] md:w-[50vw]">
-                localhost:2008/blog-image/${item?.image}`} alt="fs" className="h-full w-full" />
+                <img src={`https://book-shop-backend-2i9k.onrender.com/blog-image/${item?.image}`} alt="fs" className="h-full w-full" />
               </div>
 
               <div className="py-1">

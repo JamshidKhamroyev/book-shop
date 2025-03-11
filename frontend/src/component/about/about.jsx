@@ -13,7 +13,7 @@ const About = () => {
 
         <div className="flex md:flex-row flex-col items-start gap-2">
             <div className="w-full p-3">
-                <img src={`http://localhost:2008/site-image/${info?.about_image}`} alt={Moon} className="rounded-md w-full h-[60vh]"/>
+                <img src={`https://book-shop-backend-2i9k.onrender.com/site-image/${info?.about_image}`} alt={Moon} className="rounded-md w-full h-[60vh]"/>
             </div>
 
             <div className="w-full p-3">
