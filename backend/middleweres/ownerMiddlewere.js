@@ -15,7 +15,7 @@ module.exports =(req, res, next) => {
     }
 
     // **🔍 BU YERDA BAZADAN FOYDALANUVCHINI TEKSHIRISH KERAK**
-    if (username !== "admin" || password !== "12345") {
+    if (username !== "Jamshid0811@#!@#!@#!" || password !== "12345slug_342342-34234+423423jfkjs92") {
         return res.status(403).json({ ok: false, message: "Noto‘g‘ri login yoki parol!" });
     }else{
         next();

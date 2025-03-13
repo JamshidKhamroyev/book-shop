@@ -6,7 +6,7 @@ const Login = () => {
 
     const submitHandler = event => {
         event.preventDefault()
-        if(user === "adminpass"){
+        if(user === import.meta.env.VITE_ADMIN_PASSWORD){
             return setAdmin(true)
         }
         setUser("")
