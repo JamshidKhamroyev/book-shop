@@ -7,12 +7,14 @@ import Comments from './components/coments/comments'
 import Blogs from './components/blogs/blogs'
 import AddBlog from './components/addBlog/addBlog'
 import Load from './components/loader/load'
+import Login from './components/login/login'
 
 const App = () => {
   return (
     <BrowserRouter>
       <div className='w-full flex items-start gap-3'>
         <Load />
+        <Login />
         <SideBar />
         <Routes>
           <Route path='/' element={<AllBook />}/>

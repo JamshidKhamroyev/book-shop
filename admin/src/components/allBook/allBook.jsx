@@ -43,7 +43,7 @@ const AllBook = () => {
   console.log(books);
   return (
     <div className="w-full grid lg:grid-cols-3 md:grid-cols-2 my-5 grid-cols-1 gap-2 py-6 max-md:px-1">
-      {books.map((book, i) => (
+      {books.length > 0 ? books.map((book, i) => (
         <div
           className="border p-2 cursor-pointer md:max-h-[60vh] min-h-[65vh] overflow-y-hidden"
           key={i}
@@ -75,7 +75,9 @@ const AllBook = () => {
               </footer>
             </div>
           </div>
-      ))}
+      )) : (
+        <div className="text-2xl text-center italic w-full">Hozirda kitoblar yo'q!</div>
+      )}
     </div>
 
   )

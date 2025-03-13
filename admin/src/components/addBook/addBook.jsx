@@ -14,6 +14,7 @@ const AddBook = () => {
     event.preventDefault()
     try {
         if(!data.title || !data.price || !data.description || !data.category){
+          dispatch(hideLoader())
           return toast.error("Siz barcha kataklarni to'ldirmadingiz!")
         }
         

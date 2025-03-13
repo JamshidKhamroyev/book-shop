@@ -14,6 +14,7 @@ const AddBlog = () => {
     dispatch(showLoader())
     try {
         if(!data.title || !data.image || !data.description){
+          dispatch(hideLoader())
           return toast.error("Siz barcha kataklarni to'ldirmadingiz!")
         }
     

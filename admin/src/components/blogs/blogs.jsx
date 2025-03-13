@@ -40,7 +40,7 @@ const Blogs = () => {
   return (
     <div className="md:w-2/3 max-md:px-2">
       <h2 className="text-center md:text-5xl text-2xl font-bold my-12">Barcha bloglar</h2>
-       {items.length > 0 && items.map((item, i) => (
+       {items.length > 0 ? items.map((item, i) => (
           <div key={i} className="border p-2 w-full">
             <div>
               <img src={`https://book-shop-backend-2i9k.onrender.com/blog-image/${item?.image}`} alt="fs" />
@@ -57,7 +57,7 @@ const Blogs = () => {
               </footer>
             </div>
           </div>
-       ))}
+       )) : <div className="text-2xl italic text-center">Hozirda bloglar yo'q</div>}
     </div>
   )
 }

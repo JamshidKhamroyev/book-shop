@@ -27,6 +27,7 @@ const UpdateBook = () => {
     dispatch(showLoader())
     event.preventDefault()
     if(!data.title || !data.price || !data.description || !data.category){
+      dispatch(hideLoader())
       return toast.error("Siz barcha kataklarni to'ldirmadingiz!")
     }
     
