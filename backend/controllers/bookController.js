@@ -8,7 +8,7 @@ class BookController {
             const data = req.body
             const saytId = req.saytId
             const site = await siteModel.findById(saytId)
-            if(!site){
+            if(!site || site.block){
                 const filePath = path.join(__dirname, '../bookImages', image);
                 if(image){
                     if (fs.existsSync(filePath)) {
@@ -41,7 +41,7 @@ class BookController {
             const bookId = req.params.bookId
 
             const site = await siteModel.findById(saytId)
-            if(!site){
+            if(!site || site.block){
                 return res.status(400).json({ok: false, message: "Sayt mavjud emas!"})
             }
 
@@ -68,7 +68,7 @@ class BookController {
             const {bookId} = req.params
 
             const site = await siteModel.findById(saytId)
-            if(!site){
+            if(!site || site.block){
                 return res.status(400).json({ok: false, message: "Sayt mavjud emas!"})
             }
 
@@ -92,10 +92,10 @@ class BookController {
         try {
             const saytId = req.saytId
             const site = await siteModel.findById(saytId)
-            if(!site){
+            if(!site || site.block){
                 return res.status(400).json({ok: false, message: "Sayt topilmadi!"})
             }
-
+            
             res.json({ok: true, message: "Barcha kitoblar olindi!", data: site.books.reverse()})
         } catch (error) {
             res.status(400).json({ok: false, message: error.message})
@@ -107,7 +107,7 @@ class BookController {
             const saytId = req.saytId
             const {bookId} = req.params
             const site = await siteModel.findById(saytId)
-            if(!site){
+            if(!site || site.block){
                 return res.status(400).json({ok: false, message: "Sayt topilmadi!"})
             }
 

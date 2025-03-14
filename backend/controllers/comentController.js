@@ -8,7 +8,7 @@ class ComentController {
             const saytId = req.saytId
 
             const site = await siteModel.findById(saytId)
-            if(!site){
+            if(!site || site.block){
                 return res.status(400).json({ok: false, message: "Xatolik yuz berdi. Iltimos ma'lumotlarni tekshirib ko'ring! Site undefined"})
             }
 
@@ -37,7 +37,7 @@ class ComentController {
         try {
             const saytId = req.saytId
             const site = await siteModel.findById(saytId)
-            if(!site){
+            if(!site || site.block){
                 return res.status(400).json({ok: false, message: "Xatolik yuz berdi. Iltimos ma'lumotlarni tekshirib ko'ring! Site undefined"})
             }
             
@@ -54,6 +54,9 @@ class ComentController {
         try {
             const saytId = req.saytId
             const site = await siteModel.findById(saytId)
+            if(!site || site.block){
+                return res.status(400).json({ok: false, message: "Sayt mavjud emas!"})
+            }
             res.json({ok: true, message: "Barcha comentlar olindi!", data: site.comments})
         } catch (error) {
             res.status(400).json({ok: false, message: error.message})

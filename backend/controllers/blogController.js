@@ -17,6 +17,10 @@ class BlogController {
                 return res.status(400).json({ok: false, message: "Xatolik yuz berdi. Iltimos ma'lumotlarni tekshirib ko'ring! Site undefined"})
             }
 
+            if(site.block){
+                return res.status(400).json({ok: false, message: "Sizning hisobingiz ishlamayapti! Ma'lumotlarni tekshirib ko'ring!"})
+            }
+
             if(site.system === "Standart" && site.blogs.length == 1){
                 const filePath = path.join(__dirname, "../blogImages", image);
                 if (fs.existsSync(filePath)) {
@@ -52,6 +56,8 @@ class BlogController {
             if(!site){
                 return res.status(400).json({ok: false, message: "Xatolik yuz berdi. Iltimos ma'lumotlarni tekshirib ko'ring! Site undefined"})
             }
+
+            
             
             const bookId = req.params.bookId
             const oldBook = site.blogs.find(book => book._id.toString() === bookId)
@@ -79,6 +85,9 @@ class BlogController {
                 return res.status(400).json({ok: false, message: "Xatolik"})
             }
 
+            if(site.block){
+                return res.status(400).json({ok: false, message: "Sizning hisobingiz ishlamayapti! Ma'lumotlarni tekshirib ko'ring!"})
+            }
             res.json({ok: true, message: "Ok", data: site.blogs})
         } catch (error) {
             res.status(400).json({ok: false, message: error.message})
@@ -94,7 +103,9 @@ class BlogController {
             if(!site){
                 return res.status(400).json({ok: false, message: "Site topilmadi!"})
             }
-
+            if(site.block){
+                return res.status(400).json({ok: false, message: "Sizning hisobingiz ishlamayapti! Ma'lumotlarni tekshirib ko'ring!"})
+            }
             const blog = site.blogs.find(b => b._id.toString() === blogId)
             res.json({ok: true, message: "Blog olindi!", data: blog})
         } catch (error) {
