@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import Moon from '../../assets/moon.webp'
 import { Myaxios } from "../../apikeys"
 import { useEffect, useState } from "react"
@@ -6,10 +6,12 @@ import { toast } from "react-toastify"
 import moment from "moment/moment"
 import Book from '../../assets/book.webp'
 import { useNavigate } from "react-router-dom"
+import { hideLoader, showLoader } from "../../reducers/loader"
 
 const NewBooks = () => {
     const {mode} = useSelector(state => state.mode)
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     const [books, setBooks] = useState([])
 
     const getAllBooks = async () => {
@@ -25,6 +27,19 @@ const NewBooks = () => {
         }
     }
 
+    const clickHandler = async (id) => {
+        dispatch(showLoader())
+        try {
+          const response = await Myaxios.put(`/api/book/add-eyes/${id}`)
+          if(response.data.ok){
+            navigate(`/book/${id}`)
+          }
+        } catch (error) {
+            toast.error(error.response.data.message)            
+        }
+        dispatch(hideLoader())
+      }
+
     useEffect(() => {
         getAllBooks()
     },[])
@@ -37,7 +52,7 @@ const NewBooks = () => {
 
         <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-3 py-5">
             {books.map((book, i) => (
-                <div className="border p-2 cursor-pointer" key={i} onClick={() => navigate(`/book/${book._id}`)}>
+                <div className="border p-2 cursor-pointer" key={i} onClick={() => clickHandler(book._id)}>
                     <div className="w-full h-[50vh]">
                         <img src={Book} alt={Moon} className="w-full h-full"/>
                     </div>

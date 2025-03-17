@@ -5,7 +5,7 @@ const About = () => {
     const {mode} = useSelector(state => state.mode)
     const {info} = useSelector(state => state.info)
   return (
-    <section className={`${mode ? "navy" : "nav"} py-12`}>
+    <section className={`${mode ? "navy" : "nav"} py-12 md:px-5`}>
         <div className="text-center py-3 Itim">
             <h2 className="md:text-4xl text-3xl font-semibold">O‘qish – ma’naviyat kaliti!</h2>
             <h4 className="md:text-3xl text-2xl">Siz izlagan kitoblar shu yerda!</h4>
@@ -18,7 +18,7 @@ const About = () => {
 
             <div className="w-full p-3">
                 <h2 className="md:text-4xl text-3xl Itim font-bold mb-3">Biz Haqimizda!</h2>
-                <p className="md:text-xl text-justify">{info?.about_description}</p>
+                <p className="md:text-xl h-[47vh] overflow-y-scroll text-justify">{info?.about_description}</p>
                 <button className={`w-full py-1 border text-xl mt-3 rounded-sm ${mode ? "hover:bg-white hover:text-black" : "hover:bg-black hover:text-white"} duration-300 cursor-pointer`}>Kirish</button>
             </div>
         </div>
