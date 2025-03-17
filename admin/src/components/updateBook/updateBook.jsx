@@ -12,7 +12,7 @@ const UpdateBook = () => {
   const [data, setData] = useState({title: "", description: "", price: "", category: "Tarix"})
 
   const getOneBook = async () => {
-    // dispatch(showLoader())
+    dispatch(showLoader())
     const response = await myaxios.get(`/api/book/get-one/${id}`)
     if(response.data.ok){
       toast.success(response.data.message)

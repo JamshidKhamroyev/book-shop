@@ -13,7 +13,7 @@ const Footer = () => {
           <div className="grid lg:grid-cols-4  sm:grid-cols-2 max-md:gap-8">
           <div>
               <div>
-                <img src={mode ? fixter2 : fixter1} alt={Moon} className="w-full h-[100px]"/>
+                <img src={mode ? fixter2 : fixter1} alt={fixter2} className="w-full h-[100px]"/>
               </div>
               <p className="text-[18px] my-2">Ushbu loyiha FIXTER kompaniyasining "Online books" tizimiga qarashli hisoblanadi!</p>
             </div>
