@@ -83,7 +83,7 @@ const Books = () => {
       </div>
 
       {/* Kategoriyalar */}
-      <div className="w-full flex items-center justify-start gap-2 md:px-4 mt-4 overflow-scroll pb-2">
+      <div className="w-full flex items-center md:justify-center justify-start gap-2 md:px-4 mt-4 overflow-scroll pb-2">
         {categories.map((item) => (
           <div
             key={item.title}
